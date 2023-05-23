@@ -29,6 +29,7 @@ const Login = () => {
                     alert("API Key inválida")
                     return
                 }
+                console.log(res);
                 setApiKey(user)
                 navigate('/')
             })

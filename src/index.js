@@ -8,6 +8,8 @@ import Home from './pages/Home';
 import Login from './pages/Login'
 import Leagues from './pages/Leagues';
 import About from './pages/About';
+import Teams from './pages/Teams';
+import Team from './pages/Team';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,6 +21,8 @@ root.render(
             <Route path='/login' element={<Login />} />
             <Route path='/about' element={<About />} />
             <Route path='/leagues/:code' element={<Leagues />} />
+            <Route path='/teams/:season/:leagueID' element={<Teams />} />
+            <Route path='/teams/:season/:leagueID/:teamID' element={<Team />} />
         </Route>
       </Routes>
     </BrowserRouter>

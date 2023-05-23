@@ -18,13 +18,12 @@
     font-size: 3rem;
 }
 
-.header input {
-    background-color: rgb(30, 30, 30);
-    border: none;
-    padding: 1rem;
-    color: #fff;
-    font-size: larger;
-    border-radius: 10px;
+.header span {
+    color: var(--green);
+}
+
+.header img {
+    height: 55vh;
 }
 
 .countries {
@@ -49,11 +48,12 @@
     flex-direction: column;
     align-items: center;
     gap: .5rem;
-    text-decoration: none;
     color: #fff;
     padding: 1rem;
-    background-color: rgb(30, 30, 30);
+    background-color: #000;
+    cursor: pointer;
     border-radius: 10px;
+    border: none;
 }
 
 @media screen and (max-width: 1380px) {

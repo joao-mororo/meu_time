@@ -1,35 +1,27 @@
-.page {
+.teams {
     display: flex;
     flex-wrap: wrap;
 }
 
 .header {
-    width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
     padding: 5rem;
 }
 
-.header select {
-    background-color: #000;
-    color: #fff;
-    padding: 1rem;
-    border-radius: 10px;
+.header img {
+    height: 60vh;
 }
 
-.league {
+.team {
     width: 20%;
     padding: .5rem;
 }
 
-.logo {
-    width: 3rem;
-    height: 3rem;
-}
-
 .link {
-    width: 100%;
+    text-decoration: none;
     border: none;
     color: #fff;
     display: flex;
@@ -40,9 +32,21 @@
     background-color: #000;
     gap: .5rem;
     transition: .2s;
-    cursor: pointer;
 }
 
 .link:hover {
     background-color: var(--green);
+}
+
+.country {
+    color: var(--green);
+}
+
+.link:hover .country {
+    color: #000;
+}
+
+.logo {
+    width: 3rem;
+    height: 3rem;
 }
