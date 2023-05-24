@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import LoginImg from '../../images/login.svg'
-import useLocalStorage from '../../hooks/useLocalStorage'
 import { useNavigate } from 'react-router-dom'
+import useLocalStorage from '../../hooks/useLocalStorage'
+import LoginImg from '../../images/login.svg'
 import styles from './Login.module.css'
 
 const Login = () => {
@@ -47,7 +47,7 @@ const Login = () => {
                     value={user}
                     onChange={e => setUser(e.target.value)}
                 />
-                <button className={styles.btn_submit} type='button' onClick={() => login()}>{loading ? 'Carregando...' : "Entrar"}</button>
+                <button disabled={loading} className={styles.btn_submit} type='button' onClick={() => login()}>{loading ? 'Validando...' : "Entrar"}</button>
             </div>
 
         </div>

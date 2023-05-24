@@ -1,0 +1,55 @@
+
+:root {
+    --loader-size: 40px;
+    --border-width: 12px;
+  }
+  
+  .component {
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .component .loader,
+  .component .loader::before,
+  .component .loader::after {
+    border-radius: 50%;
+  }
+  .component .loader {
+    width: var(--loader-size);
+    height: var(--loader-size);
+    background-color: var(--green);
+    position: relative;
+  }
+  
+  .component .loader::before,
+  .component .loader::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-width: var(--border-width);
+    border-style: solid;
+    animation: rotate 2.3s linear infinite;
+  }
+  .component .loader::before {
+    z-index: 3;
+    width: var(--loader-size);
+    height: var(--loader-size);
+    border-color: var(--green) transparent;
+  }
+  .component .loader::after {
+    z-index: 4;
+    width: calc(var(--loader-size) + var(--border-width) * 2);
+    height: calc(var(--loader-size) + var(--border-width) * 2);
+    border-color: transparent var(--green);
+    animation-direction: reverse;
+  }
+  
+  @keyframes rotate {
+    to {
+      transform: translate(-50.5%, -49.5%) rotate(360deg);
+    }
+  }

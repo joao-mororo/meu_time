@@ -1,16 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
+import Loader from '../../components/Loader'
 import gamedayIMG from '../../images/gameday.svg'
 import useLocalStorage from '../../hooks/useLocalStorage'
 import styles from './Teams.module.css'
 
+// import teams from '../../data/teams'
+
 const Teams = () => {
     const { season, leagueID } = useParams()
     const [apiKey] = useLocalStorage('apiKey')
-    const navigate = useNavigate()
     const [teams, setTeams] = useState([])
+    const navigate = useNavigate()
+
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
+        setIsLoading(true)
         if (apiKey === '') {
             navigate('/login')
             return
@@ -27,6 +33,7 @@ const Teams = () => {
             .then(res => {
                 setTeams(res.response)
             })
+            .finally(() => setIsLoading(false))
     }, [])
 
     return (
@@ -34,22 +41,28 @@ const Teams = () => {
             <div className={styles.header}>
                 <img src={gamedayIMG} alt="" />
                 <div>
-                    <h1>Selecione seu time</h1>
+                    {teams.length > 0 ? (
+                        <h1>Selecione seu <span>time</span></h1>
+                    ) : (
+                        <h1>Nenhum time encontrado</h1>
+                    )}
                 </div>
             </div>
-            <div className={styles.teams}>
-                {teams.map((item) => (
-                    <div key={item.team.id} className={styles.team}>
-                        <Link className={styles.link} to={`/teams/${season}/${leagueID}/${item.team.id}`}>
-                            <img className={styles.logo} src={item.team.logo} alt="" />
-                            <div className={styles.label}>
-                                <p className={styles.name}>{item.team.code} - {item.team.name}</p>
-                                <p className={styles.country}>{item.team.country}</p>
-                            </div>
-                        </Link>
-                    </div>
-                ))}
-            </div>
+            {isLoading ? <Loader /> : (
+                <div className={styles.teams}>
+                    {teams.map((item) => (
+                        <div key={item.team.id} className={styles.team}>
+                            <Link className={styles.link} to={`/teams/${season}/${leagueID}/${item.team.id}`}>
+                                <img className={styles.logo} src={item.team.logo} alt="" />
+                                <div className={styles.label}>
+                                    <p className={styles.name}>{item.team.code} - {item.team.name}</p>
+                                    <p className={styles.country}>{item.team.country}</p>
+                                </div>
+                            </Link>
+                        </div>
+                    ))}
+                </div>
+            )}
         </div>
     )
 }

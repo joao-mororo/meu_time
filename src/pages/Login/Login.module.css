@@ -60,3 +60,8 @@
 .btn_submit:hover {
     background-color: var(--dark-green);
 }
+
+.btn_submit:disabled {
+    background-color: var(--dark-green);
+    cursor: alias;
+}

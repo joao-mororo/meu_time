@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import useLocalStorage from '../../hooks/useLocalStorage'
+import Loader from '../../components/Loader';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -12,7 +13,6 @@ import {
     Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-
 import styles from './Team.module.css'
 
 // import statistics from '../../data/statistics'
@@ -32,15 +32,19 @@ const Team = () => {
     const { season, leagueID, teamID } = useParams()
     const navigate = useNavigate()
     const [apiKey] = useLocalStorage('apiKey')
-    
+
     const [statistics, setStatistics] = useState()
     const [players, setPlayers] = useState([])
 
-    // const chartLabels = Object.keys(statistics.goals?.for?.minute)
+    const [isLoading, setIsLoading] = useState(false)
+
     const chartLabels = ["0-15", "16-30", "31-45", "46-60", "61-75", "76-90", "91-105", "106-120"]
 
+    // Get team statistics
     useEffect(() => {
+        setIsLoading(true)
         if (apiKey === '') {
+            setIsLoading(false)
             navigate('/login')
             return
         }
@@ -55,9 +59,12 @@ const Team = () => {
             .then(res => res.json())
             .then(res => {
                 setStatistics(res.response)
+                console.log(res.response);
             })
+            .finally(() => setIsLoading(false))
     }, [])
 
+    // Get team players
     useEffect(() => {
         if (apiKey === '') {
             navigate('/login')
@@ -79,7 +86,7 @@ const Team = () => {
 
     return (
         <div className={`page ${styles.page}`}>
-            {statistics && (
+            {statistics ? (
                 <>
                     <div className={styles.header}>
                         <div className={styles.left}>
@@ -108,10 +115,12 @@ const Team = () => {
                                     </tbody>
                                 </table>
                             </div>
-                            <div className={styles.formation}>
-                                <h3>Formação mais usada</h3>
-                                <p>{statistics.lineups[0].formation}</p>
-                            </div>
+                            {statistics.lineups.length > 0 && (
+                                <div className={styles.formation}>
+                                    <h3>Formação mais usada</h3>
+                                    <p>{statistics.lineups[0].formation}</p>
+                                </div>
+                            )}
                         </div>
                     </div>
                     <table className={styles.data}>
@@ -161,6 +170,8 @@ const Team = () => {
                         />
                     </div>
                 </>
+            ) : (
+                <Loader />
             )}
         </div>
     )

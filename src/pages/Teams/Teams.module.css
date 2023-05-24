@@ -15,6 +15,14 @@
     height: 60vh;
 }
 
+.header h1 {
+    font-size: 3rem;
+}
+
+.header span {
+    color: var(--green);
+}
+
 .team {
     width: 20%;
     padding: .5rem;

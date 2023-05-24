@@ -1,34 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import useLocalStorage from '../../hooks/useLocalStorage'
 import HomeIMG from '../../images/home.svg'
-import styles from './Home.module.css'
-
 import countries from '../../data/countries'
+import styles from './Home.module.css'
 
 const Home = () => {
     const navigate = useNavigate()
     const [apiKey] = useLocalStorage('apiKey')
-    // const [countries, setCountries] = useState([])
-
-    // useEffect(() => {
-    //     if (apiKey === '') {
-    //         navigate('/login')
-    //         return
-    //     }
-
-    //     fetch("https://v3.football.api-sports.io/countries", {
-    //         method: "GET",
-    //         headers: {
-    //             "x-apisports-key": `${apiKey}`
-    //         }
-    //     })
-    //         .catch(err => alert(err))
-    //         .then(res => res.json())
-    //         .then(res => {
-    //             setCountries(res.response)
-    //         })
-    // }, [])
 
     const navigateTo = (code) => {
         if (apiKey === '') {
