@@ -11,4 +11,4 @@ Antes de começar a usar, primeiro é necessário criar uma conta na <a href="ht
 ![image](https://github.com/joao-mororo/meu_time/assets/110433639/64391f61-4080-4713-af9d-30d298005cb1)
 
 ## App
-Pode acessar o Meu Time clicando <a href="https://joaomororo-meu_time.netlify.app" target='_blank' rel="noopener">aqui</a>
+Pode acessar o Meu Time clicando <a href="https://joaomororo-meutime.netlify.app" target='_blank' rel="noopener">aqui</a>
