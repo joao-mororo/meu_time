@@ -41,11 +41,7 @@ const Teams = () => {
             <div className={styles.header}>
                 <img src={gamedayIMG} alt="" />
                 <div>
-                    {teams.length > 0 ? (
-                        <h1>Selecione seu <span>time</span></h1>
-                    ) : (
-                        <h1>Nenhum time encontrado</h1>
-                    )}
+                    <h1>Selecione seu <span>time</span></h1>
                 </div>
             </div>
             {isLoading ? <Loader /> : (

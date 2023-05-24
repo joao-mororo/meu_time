@@ -37,7 +37,6 @@ const Leagues = () => {
             .then(res => res.json())
             .then(res => {
                 setLeagues(res.response)
-                console.log(res.response);
             })
             .finally(() => setIsLoading(false))
     }, [])
