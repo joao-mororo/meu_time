@@ -36,15 +36,11 @@ const Team = () => {
     const [statistics, setStatistics] = useState()
     const [players, setPlayers] = useState([])
 
-    const [isLoading, setIsLoading] = useState(false)
-
     const chartLabels = ["0-15", "16-30", "31-45", "46-60", "61-75", "76-90", "91-105", "106-120"]
 
     // Get team statistics
     useEffect(() => {
-        setIsLoading(true)
         if (apiKey === '') {
-            setIsLoading(false)
             navigate('/login')
             return
         }
@@ -61,7 +57,6 @@ const Team = () => {
                 setStatistics(res.response)
                 console.log(res.response);
             })
-            .finally(() => setIsLoading(false))
     }, [])
 
     // Get team players
@@ -85,7 +80,7 @@ const Team = () => {
     }, [])
 
     return (
-        <div className={`page ${styles.page}`}>
+        <div className={styles.page}>
             {statistics ? (
                 <>
                     <div className={styles.header}>

@@ -65,3 +65,13 @@
     background-color: var(--dark-green);
     cursor: alias;
 }
+
+@media screen and (max-width: 600px) {
+    .card {
+        width: 80%;
+    }
+
+    .img {
+        width: 80%;
+    }
+}

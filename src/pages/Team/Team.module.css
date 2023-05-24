@@ -85,3 +85,42 @@
     align-items: center;
     margin-bottom: 10rem;
 }
+
+@media screen and (max-width: 600px) {
+    .left, .right {
+        width: 100%;
+        margin: 0;
+    }
+
+    .left {
+        margin-bottom: 3rem;
+    }
+
+    .right {
+        padding: 1rem;
+    }
+
+    .header {
+        flex-direction: column;
+    }
+
+    .header img {
+        width: 75%;
+    }
+
+    .data {
+        margin: 0;
+    }
+
+    .data th {
+        font-size: 1.2rem;
+    }
+
+    .data td {
+        font-size: 1.1rem;
+    }
+
+    .goals {
+        margin: 0;
+    }
+}

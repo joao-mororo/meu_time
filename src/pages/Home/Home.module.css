@@ -57,7 +57,29 @@
 }
 
 @media screen and (max-width: 1380px) {
+    .header {
+        padding: 20vh 0;
+        gap: 3rem;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .header > div {
+        text-align: center;
+    }
+
+    .header img {
+        height: auto;
+        width: 80%;
+    }
+
     .country {
-        width: 20%;
+        width: 50%;
+        padding: .3rem;
+        margin: 0;
+    }
+
+    .country img {
+        width: 100%;
     }
 }

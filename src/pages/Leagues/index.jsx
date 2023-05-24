@@ -85,7 +85,7 @@ const Leagues = () => {
             {isLoading ? (
                 <Loader />
             ) : (
-                <>
+                <div className={styles.leagues}>
                     {leagues.map((item) => (
                         <div className={styles.league} key={item.league.id}>
                             <button onClick={() => navigateTo(item.league.id)} className={styles.link}>
@@ -94,7 +94,7 @@ const Leagues = () => {
                             </button>
                         </div>
                     ))}
-                </>
+                </div>
             )}
         </div>
     )

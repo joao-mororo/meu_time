@@ -1,6 +1,6 @@
 .page {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .header {
@@ -43,6 +43,11 @@
     color: var(--green);
 }
 
+.leagues {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .league {
     width: 20%;
     padding: .5rem;
@@ -70,4 +75,34 @@
 
 .link:hover {
     background-color: var(--green);
+}
+
+@media screen and (max-width: 600px) {
+    .header {
+        padding: 10vh 0;
+        gap: 3rem;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .header > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header img {
+        height: auto;
+        width: 80%;
+    }
+
+    .league {
+        width: 50%;
+    }
+
+    .link {
+        font-size: 1rem;
+    }
 }

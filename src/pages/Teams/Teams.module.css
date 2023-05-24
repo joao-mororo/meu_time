@@ -58,3 +58,27 @@
     width: 3rem;
     height: 3rem;
 }
+
+@media screen and (max-width: 1380px) {
+
+    .header {
+        padding: 10vh 0;
+        gap: 3rem;
+        flex-direction: column;
+        justify-content: space-evenly;
+        text-align: center;
+    }
+
+    .header img {
+        height: auto;
+        width: 90%;
+    }
+
+    .team {
+        width: 50%;
+    }
+
+    .link {
+        font-size: 1rem;
+    }
+}
